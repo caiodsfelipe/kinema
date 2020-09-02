@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d44a71c7-7332-433c-b08b-2b5b999a2262">
+	<property name="ireport.zoom" value="1.6500000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     *,
+     ingresso.`idIngresso` AS ingresso_idIngresso,
+     ingresso.`idSessao` AS ingresso_idSessao,
+     ingresso.`idVenda` AS ingresso_idVenda,
+     ingresso.`expedicao` AS ingresso_expedicao,
+     ingresso.`tipo` AS ingresso_tipo,
+     ingresso.`valor` AS ingresso_valor,
+     ingresso.`qtd` AS ingresso_qtd
+FROM
+     `ingresso` ingresso]]>
+	</queryString>
+	<field name="ingresso_idIngresso" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idIngresso]]></fieldDescription>
+	</field>
+	<field name="ingresso_idSessao" class="java.lang.String">
+		<fieldDescription><![CDATA[idSessao.idFilme.nome]]></fieldDescription>
+	</field>
+	<field name="ingresso_idVenda" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idVenda.idVenda]]></fieldDescription>
+	</field>
+	<field name="ingresso_expedicao" class="java.util.Date">
+		<fieldDescription><![CDATA[expedicao]]></fieldDescription>
+	</field>
+	<field name="ingresso_tipo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[tipo]]></fieldDescription>
+	</field>
+	<field name="ingresso_valor" class="java.lang.Float">
+		<fieldDescription><![CDATA[valor]]></fieldDescription>
+	</field>
+	<field name="ingresso_qtd" class="java.lang.Integer">
+		<fieldDescription><![CDATA[qtd]]></fieldDescription>
+	</field>
+	<variable name="ingresso_idIngresso_1" class="java.lang.Integer" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{ingresso_idIngresso}]]></variableExpression>
+	</variable>
+	<variable name="ingresso_idVenda_1" class="java.lang.Integer" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{ingresso_idVenda}]]></variableExpression>
+	</variable>
+	<group name="ingressos">
+		<groupExpression><![CDATA[$F{ingresso_idVenda}]]></groupExpression>
+		<groupHeader>
+			<band height="53">
+				<staticText>
+					<reportElement x="477" y="33" width="78" height="16" uuid="a4c7ad27-65f1-49eb-933e-83047e0bd4fd"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<text><![CDATA[Valor Unitário]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="33" width="242" height="17" uuid="5833bc1c-396e-4885-9fd2-ded90142bcdb"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Sessão]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="408" y="33" width="69" height="16" uuid="7f194db5-3d2f-4d49-829b-9b08f466dda8"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<text><![CDATA[Quantidade]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="359" y="11" width="86" height="17" uuid="155658d3-d655-4f37-b028-c0d420397308"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Expedição:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="11" width="63" height="18" uuid="967ff956-d4c1-44cc-8cff-a0e68b70597c"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Cód. Venda:]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="28" width="555" height="1" uuid="cd4cf22b-ff3b-42c3-8b1f-b1c1a4183639"/>
+				</line>
+				<line>
+					<reportElement x="0" y="10" width="555" height="1" uuid="413fb3d7-15be-49c3-85a9-a6255d1b2b0c"/>
+				</line>
+				<textField>
+					<reportElement x="63" y="11" width="133" height="17" uuid="38d194e8-e74f-4a92-8ce2-c0bb86790736"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{ingresso_idVenda}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="445" y="11" width="110" height="17" uuid="0acba349-38fb-436f-883d-94fe0a420ef4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{ingresso_expedicao}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="46" y="0" width="196" height="15" uuid="9b4e9660-3a74-4d85-9bad-752ba2a77fdb"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Kinema]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="15" width="196" height="15" uuid="81dfd91e-58f8-4399-9a2d-ea4f1a384fe7"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Sistema de Gerenciamento de Cinemas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="0" width="196" height="15" uuid="16a31b29-d4b1-4cf7-9d6e-19a8b6a546d4"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="10" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Relatório de Vendas de Ingressos]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="455" y="15" width="100" height="15" uuid="6262d7b2-7a41-469b-b497-6c61f5eb1dc1"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="35" height="30" uuid="343c9fb0-2b87-4ebc-b08e-3be102ec535a"/>
+				<imageExpression><![CDATA["E:\\3 Ano\\PIP\\Kinema\\src\\Imagens\\logo_relatorio.jpeg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="0dd86b89-cd38-4434-83a0-8c8d376242b8"/>
+			</line>
+			<line>
+				<reportElement x="0" y="15" width="555" height="1" uuid="a800bcdb-ed51-47a1-a453-8b9f83819adb"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="1" width="196" height="15" uuid="05d7f788-1741-4c35-b090-961223e6e9d2"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Sistema de Gerenciamento de Cinemas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="1" width="196" height="15" uuid="d993fa82-7fe0-45b4-9904-a065980e763d"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="10" isBold="false" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Relatório de Vendas de Ingressos]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement x="408" y="0" width="69" height="17" uuid="07082add-4a5e-4157-8a5e-64f21f3fece6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ingresso_qtd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="0" width="78" height="17" uuid="9bd19f1a-94b5-4eff-8123-fd4e5efafa34"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["R$ " + $F{ingresso_valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="242" height="17" uuid="dfbf2ed1-8028-4a53-8a1e-178c169a0684"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ingresso_idSessao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="54" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="142" y="38" width="100" height="15" uuid="c75d8a19-3ff4-4e4e-86fd-d6af2e50d29b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="38" width="142" height="15" uuid="81349c18-f016-4ccc-a400-62de99d77fa1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Total de páginas do relatório:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="23" width="142" height="15" uuid="068ae129-5e0f-4ac4-802a-8dd21f86c93e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Total de Vendas:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="142" y="23" width="100" height="15" uuid="57495e0a-3fe0-4101-af28-470d3c983c0c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{ingresso_idVenda_1}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="11" width="555" height="1" uuid="66edab90-0709-4b58-bd64-018026246ca1"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

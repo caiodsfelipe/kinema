@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="227" pageHeight="180" whenNoDataType="NoDataSection" columnWidth="187" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="d44a71c7-7332-433c-b08b-2b5b999a2262">
+	<property name="ireport.zoom" value="2.5937424601000036"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     ingresso.`valor` AS ingresso_valor,
+     ingresso.`qtd` AS ingresso_qtd,
+     ingresso.`expedicao` AS ingresso_expedicao,
+     ingresso.`idSessao` AS ingresso_idSessao,
+     ingresso.`idIngresso` AS ingresso_idIngresso
+FROM
+     `ingresso` ingresso]]>
+	</queryString>
+	<field name="ingresso_valor" class="java.lang.Float">
+		<fieldDescription><![CDATA[valor]]></fieldDescription>
+	</field>
+	<field name="ingresso_qtd" class="java.lang.Integer">
+		<fieldDescription><![CDATA[qtd]]></fieldDescription>
+	</field>
+	<field name="ingresso_expedicao" class="java.util.Date">
+		<fieldDescription><![CDATA[expedicao]]></fieldDescription>
+	</field>
+	<field name="ingresso_idSessao" class="java.lang.Object">
+		<fieldDescription><![CDATA[idSessao]]></fieldDescription>
+	</field>
+	<field name="filme" class="java.lang.String">
+		<fieldDescription><![CDATA[idSessao.idFilme.nome]]></fieldDescription>
+	</field>
+	<field name="codigo" class="java.lang.Object">
+		<fieldDescription><![CDATA[idIngresso]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="140" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="32" width="187" height="30" uuid="fe2780b1-0274-4066-906c-ed10b1021e03"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{filme}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="1" width="187" height="29" uuid="82a7f1f1-1f4c-48bd-bb13-aac6dfa3aafd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kinema]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="31" width="187" height="1" uuid="fce8d7c5-ad4c-419e-887b-a3b60dec872d"/>
+			</line>
+			<textField>
+				<reportElement x="87" y="107" width="100" height="15" uuid="2346fe54-675f-4a63-9e6c-35f1ed423a5c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ingresso_expedicao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="62" width="187" height="30" uuid="5feb3ba9-8d1a-411c-b5d4-da410302cfab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ingresso_idSessao}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="61" width="187" height="1" uuid="2823f3fa-f2ba-4511-b4e8-3743e836ecea"/>
+			</line>
+			<line>
+				<reportElement x="0" y="91" width="187" height="1" uuid="4d5dc14e-f5dc-4b51-9419-f51212887d6e"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="92" width="61" height="15" uuid="f6103739-4613-4b97-ad15-d03a92c75246"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Valor Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="87" y="92" width="100" height="15" uuid="07b35c46-e6e4-4402-83ff-0d36128a77c7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ingresso_valor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="107" width="61" height="15" uuid="fcc0f1af-7861-4b16-a563-e80a5b9aa664"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Expedição:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="35" height="30" uuid="eeea8d80-f11d-4546-be45-71e9846c0ffe"/>
+				<imageExpression><![CDATA["E:\\3 Ano\\PIP\\Kinema\\src\\Imagens\\logo_relatorio.jpeg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="122" width="187" height="1" uuid="5e72f69c-2fb2-432f-ab79-23257987d365"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
