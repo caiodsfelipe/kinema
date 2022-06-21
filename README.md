@@ -17,3 +17,5 @@ desenvolvimento, linguagens, bibliotecas e tecnologias, como:
 ● Unified Modeling Language (UML)
 
 ● JasperReportsL
+
+Data de conclusão: 2019.
